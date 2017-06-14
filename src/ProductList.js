@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
-import Brand from './Brand';
 import axios from 'axios';
 
 
 class ProductList extends Component {
   constructor(props) {
     super(props);
-    const brand = props.match.params.brand;
+    // const brand = props.match.params.brand;
     this.state = {
-      products: []
+      products: [],
     }
   }
 
   componentDidMount(){
     this.getBrands(this.props.match.params.brand);
   }
-  componentDidUpdate(){
-    this.getBrands(this.props.match.params.brand);
+
+  componentDidUpdate(prevProps, prevState){
+    if (prevProps.match.params.brand !== this.props.match.params.brand) {
+      this.getBrands(this.props.match.params.brand);
+    }
   }
 
   getBrands(brand) {
@@ -28,7 +30,9 @@ class ProductList extends Component {
           price: product.price,
           name: product.name,
           productType: product.product_type,
-          image: product.image_link
+          image: product.image_link,
+          description: product.description,
+          colors: product.product_colors
         }
       });
       this.setState({products})
@@ -36,17 +40,24 @@ class ProductList extends Component {
   }
 
   render() {
-    let data = this.state.products.map(product => (
-      <div key={product.id}>
+    let data = this.state.products.map((product,id) => (
+      <div className="product" key={id}>
         <h4>{product.name}</h4>
-        <h5>{product.price}</h5>
-        <img src={product.image}/>
+        <h5><a className="price" onClick={this.props.addToCart}>{product.price}</a></h5>
+        <img alt="product" src={product.image}/>
         <p>Category: {product.productType}</p>
+        <p className="description">{product.description}</p>
+        <div>
+          {product.colors.map((color,id) => (
+            <div className="product-color" key={id} style={{backgroundColor: color.hex_value}}>
+            </div>
+          ))}
+        </div>
       </div>
     ))
 
     return (
-      <div>
+      <div className="product-list">
         {data}
       </div>
     );

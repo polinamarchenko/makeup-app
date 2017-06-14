@@ -2,23 +2,97 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.brand {
+  padding: 8px;
+  background-color: #FAD310;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  float: left;
+  margin-right: 5px;
+  margin-top: 5px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.brand:hover {
+  background-color: #C1A944;
   color: white;
 }
 
-.App-intro {
-  font-size: large;
+.brand-list {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.top-nav {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+.main-nav {
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  display: inline-block;
+  float: left;
+  color: #293C37;
+  margin-right: 20px;
+}
+
+.nav-link-cart {
+
+}
+
+h2 {
+  padding-top: 7px;
+}
+
+.product-list {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 180px;
+}
+
+.product {
+  display: inline-table;
+  border: solid 1px lightgrey;
+  max-width: 180px;
+  height: 250px;
+  padding: 30px;
+  margin-right: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.price {
+  background-color: lightyellow;
+  padding: 5px;
+  border: 1px solid lightgrey;
+  cursor:cell;
+  text-decoration: none;
+}
+.price:hover {
+  box-shadow: 2px 1px 2px lightgrey;
+}
+
+.description {
+  font-size: 13px;
+  color: grey;
+}
+
+.product-color {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+
+.cart {
+  margin-top: -30px;
+  float: right;
 }
